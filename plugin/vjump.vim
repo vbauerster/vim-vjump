@@ -1,3 +1,12 @@
+function! s:vjumpUp()
+	silent! call repeat#set("\<Plug>(vjump-up)")
+	return vjump#to(1)
+endfunction
 
-nnoremap <silent> <expr> <Plug>(vjump-down) vjump#to(0)
-nnoremap <silent> <expr> <Plug>(vjump-up) vjump#to(1)
+function! s:vjumpDown()
+	silent! call repeat#set("\<Plug>(vjump-down)")
+	return vjump#to(0)
+endfunction
+
+nnoremap <silent> <expr> <Plug>(vjump-up) <SID>vjumpUp()
+nnoremap <silent> <expr> <Plug>(vjump-down) <SID>vjumpDown()
